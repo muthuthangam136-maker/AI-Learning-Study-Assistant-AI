@@ -1,0 +1,70 @@
+# DATA STRUCTURES AND ALGORITHMS (DSA) STUDY GUIDE
+
+## 1. Introduction to Data Structures
+A data structure is a specialized format for organizing, processing, retrieving, and storing data efficiently.
+- Primitive Data Structures: Integer, Float, Character, Boolean.
+- Non-Primitive Linear: Arrays, Linked Lists, Stacks, Queues.
+- Non-Primitive Non-Linear: Trees, Graphs, Hash Tables, Heaps.
+
+Time and Space Complexity (Big-O Notation):
+- O(1): Constant time (e.g., accessing array element by index, hash map lookup average case).
+- O(log N): Logarithmic time (e.g., binary search, balanced BST operations).
+- O(N): Linear time (e.g., traversing an unsorted array or singly linked list).
+- O(N log N): Linearithmic time (e.g., Merge Sort, Quick Sort average case).
+- O(N^2): Quadratic time (e.g., Bubble Sort, Selection Sort, nested loops).
+
+## 2. Arrays and Linked Lists
+### Arrays
+- Contiguous block of memory storing homogeneous elements.
+- Advantages: Fast O(1) random access using indices.
+- Disadvantages: Fixed size, expensive O(N) insertion/deletion due to shifting.
+
+### Linked Lists
+- Nodes stored at non-contiguous memory locations linked via pointers.
+- Singly Linked List: Each node has `data` and `next` pointer.
+- Doubly Linked List: Nodes have `prev`, `data`, and `next` pointers.
+- Circular Linked List: Last node links back to the head node.
+- Insertion/Deletion at head is O(1); access by position is O(N).
+
+## 3. Stacks and Queues
+### Stack (LIFO - Last In First Out)
+- Operations: `push()`, `pop()`, `peek()`, `isEmpty()`. All operations execute in O(1) time.
+- Applications: Function call stack (recursion), undo mechanisms, expression evaluation (Infix to Postfix), parenthesis matching.
+
+### Queue (FIFO - First In First Out)
+- Operations: `enqueue()` (insert at rear), `dequeue()` (remove from front), `front()`. All O(1) in linked/circular queue implementations.
+- Variants: Circular Queue, Priority Queue (Min/Max Heap), Deque (Double Ended Queue).
+- Applications: CPU process scheduling, printer spools, Breadth-First Search (BFS).
+
+## 4. Trees and Binary Search Trees (BST)
+- Tree: Hierarchical collection of nodes connected by edges with a single root.
+- Binary Tree: Each node has at most two children (left and right).
+- Binary Search Tree (BST):
+  - Left subtree contains only nodes with values less than the parent node.
+  - Right subtree contains only nodes with values greater than the parent node.
+  - Average search/insert/delete: O(log N). Worst case (skewed tree): O(N).
+- Self-Balancing Trees: AVL Trees and Red-Black Trees guarantee O(log N) worst-case time by performing tree rotations during insertion and deletion.
+- Traversals:
+  - Inorder: Left -> Root -> Right (Yields sorted order in a BST).
+  - Preorder: Root -> Left -> Right (Useful for copying/serializing trees).
+  - Postorder: Left -> Right -> Root (Useful for deleting or evaluating syntax trees).
+  - Level Order: Breadth-First traversal using a Queue.
+
+## 5. Graphs and Graph Algorithms
+- Graph G = (V, E) where V is vertices (nodes) and E is edges (connections).
+- Representation: Adjacency Matrix (O(V^2) space) or Adjacency List (O(V + E) space).
+- Traversals:
+  - Depth-First Search (DFS): Uses recursion or a Stack. Explores as deep as possible along each branch before backtracking. Time: O(V + E).
+  - Breadth-First Search (BFS): Uses a Queue. Explores neighbor vertices layer by layer. Computes shortest path in unweighted graphs. Time: O(V + E).
+- Shortest Path:
+  - Dijkstra's Algorithm: Computes single-source shortest path for non-negative weighted graphs using a Priority Queue. Time: O((V + E) log V).
+  - Bellman-Ford: Handles negative edge weights and detects negative cycles. Time: O(V * E).
+- Minimum Spanning Tree (MST):
+  - Kruskal's Algorithm: Greedy algorithm sorting edges and using Disjoint Set Union (DSU).
+  - Prim's Algorithm: Grows tree from a start vertex using a Min-Heap.
+
+## 6. Sorting and Searching Algorithms
+- Binary Search: Requires sorted array. Repeatedly divides search interval in half. Time: O(log N).
+- Quick Sort: Divide-and-conquer algorithm picking a pivot and partitioning array. Average: O(N log N), Worst: O(N^2) on poorly chosen pivots.
+- Merge Sort: Stable divide-and-conquer sorting. Recursively halves array and merges sorted sub-arrays. Time: O(N log N) always, Space: O(N).
+- Heap Sort: Uses binary heap structure. Time: O(N log N), In-place sorting.

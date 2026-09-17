@@ -1,0 +1,28 @@
+# CLOUD COMPUTING STUDY GUIDE
+
+## 1. Cloud Computing Overview
+Cloud computing is the on-demand delivery of IT resources (compute power, database storage, applications, networking) over the Internet with pay-as-you-go pricing.
+
+NIST Essential Characteristics:
+1. On-demand self-service: Consumers provision computing capabilities automatically without human intervention from the service provider.
+2. Broad network access: Capabilities available over network accessed through heterogeneous platforms (mobile phones, laptops, workstations).
+3. Resource pooling: Provider's computing resources pooled to serve multiple consumers using a multi-tenant model.
+4. Rapid elasticity: Capabilities elastically provisioned and released to scale outward and inward rapidly with demand.
+5. Measured service: Cloud systems automatically control and optimize resource use by leveraging a metering capability.
+
+## 2. Cloud Service Models
+- Infrastructure as a Service (IaaS): Provides fundamental computing infrastructure (virtual machines, raw storage, virtual networks). User manages OS, runtime, and applications. Examples: AWS EC2, Google Compute Engine, Azure VMs.
+- Platform as a Service (PaaS): Provides hardware and application software platform. Developers deploy application code without managing underlying OS or servers. Examples: AWS Elastic Beanstalk, Heroku, Google App Engine.
+- Software as a Service (SaaS): Delivers complete end-user applications managed by provider. Examples: Google Workspace, Microsoft 365, Salesforce.
+
+## 3. Cloud Deployment Models
+- Public Cloud: Infrastructure owned and operated by third-party cloud provider and shared among multiple tenants over the public internet.
+- Private Cloud: Cloud infrastructure provisioned for exclusive use by a single enterprise. Offers highest security and regulatory control.
+- Hybrid Cloud: Composition of public and private clouds bound together by standardized technology enabling data and application portability.
+- Multi-Cloud: Utilizing services from multiple distinct cloud vendors (e.g., AWS + GCP) to prevent vendor lock-in.
+
+## 4. Virtualization, Containers & Microservices
+- Virtualization: Hypervisors (Type 1 Bare-Metal or Type 2 Hosted) abstract physical hardware, allowing multiple isolated Guest OS Virtual Machines (VMs) to run on a single physical host.
+- Containers (Docker): OS-level virtualization sharing the host OS kernel while isolating application dependencies into lightweight, portable, fast-starting user spaces.
+- Container Orchestration (Kubernetes): Automates deployment, scaling, healing, load balancing, and management of containerized applications.
+- Serverless Computing (FaaS): Cloud executes code functions in response to events and charges strictly for execution runtime (e.g., AWS Lambda, Google Cloud Functions).

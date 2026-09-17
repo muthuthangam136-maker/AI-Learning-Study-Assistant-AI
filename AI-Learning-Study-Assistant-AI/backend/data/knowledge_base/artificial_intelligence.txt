@@ -1,0 +1,41 @@
+# ARTIFICIAL INTELLIGENCE (AI) STUDY GUIDE
+
+## 1. Fundamentals of Artificial Intelligence
+Artificial Intelligence is the branch of computer science dedicated to creating systems capable of performing tasks that normally require human intelligence, such as reasoning, learning, perception, problem-solving, and natural language understanding.
+
+Turing Test: Proposed by Alan Turing (1950) to evaluate whether a machine can exhibit intelligent behavior indistinguishable from a human.
+Rational Agents: An agent perceives its environment through sensors and acts upon that environment through actuators to maximize its performance measure (PEAS framework: Performance, Environment, Actuators, Sensors).
+
+## 2. Search Algorithms in AI
+Problem-solving agents formulate goals and find sequences of actions that lead to desired states.
+- Uninformed (Blind) Search:
+  - Breadth-First Search (BFS): Complete and optimal for unweighted graphs; high exponential memory requirements O(b^d).
+  - Depth-First Search (DFS): Low linear space complexity O(b*m), but not optimal and can get stuck in infinite depth paths.
+  - Depth-Limited Search & Iterative Deepening (IDDFS): Combines BFS optimality and completeness with DFS memory efficiency.
+  - Uniform Cost Search (UCS): Explores nodes in order of minimum path cost g(n).
+- Informed (Heuristic) Search:
+  - Greedy Best-First Search: Expands node closest to goal using heuristic h(n). Fast, but not guaranteed optimal.
+  - A* Search: Evaluates f(n) = g(n) + h(n), where g(n) is exact cost from start to n, and h(n) is estimated cost from n to goal.
+  - Admissibility of Heuristic: An admissible heuristic never overestimates the true cost to reach the goal (h(n) <= h*(n)). If h(n) is admissible and consistent, A* is both complete and optimal.
+
+## 3. Adversarial Search and Game Playing
+- Minimax Algorithm: Evaluates optimal decisions in 2-player zero-sum perfect-information games (e.g., Chess, Tic-Tac-Toe).
+  - Max player maximizes outcome; Min player minimizes Max's outcome.
+- Alpha-Beta Pruning: Prunes branches that cannot influence the final decision without affecting the optimal Minimax outcome.
+  - Alpha: Best value that the Max player can guarantee so far.
+  - Beta: Best value that the Min player can guarantee so far. Prunes when Beta <= Alpha.
+
+## 4. Knowledge Representation and Reasoning
+- Propositional Logic: Boolean variables connected via logical operators (AND, OR, NOT, IMPLIES, BICONDITIONAL).
+- First-Order Logic (FOL): Extends propositional logic with predicates, functions, objects, and quantifiers (Universal quantifier ∀ and Existential quantifier ∃).
+- Inference Mechanisms: Forward Chaining (data-driven) and Backward Chaining (goal-driven).
+- Resolution Refutation: Proves a query by converting knowledge base to Conjunctive Normal Form (CNF) and deriving a contradiction.
+
+## 5. Agentic AI & Autonomous Systems
+Agentic AI represents advanced autonomous systems designed to pursue complex multi-step goals with minimal human intervention.
+Key Pillars of Agentic AI:
+1. Intent Understanding: Parsing natural language goals into actionable specifications.
+2. Decomposition & Planning: Breaking down complex objectives into sequential sub-tasks.
+3. Tool Use & Execution: Invoking external APIs, calculators, code interpreters, and retrieval systems.
+4. Memory & State Tracking: Maintaining short-term conversational context and long-term episodic/semantic knowledge.
+5. Reflection & Self-Correction: Evaluating intermediate tool outputs and adjusting execution plans autonomously.

@@ -1,0 +1,60 @@
+# COMPUTER ORGANIZATION AND ARCHITECTURE (COA) STUDY GUIDE
+
+## 1. Computer System Architecture Basics
+Computer architecture defines the attributes of a system visible to a programmer (instruction set, data formats, addressing modes). Computer organization refers to the operational units and their interconnections that realize the architectural specifications.
+
+Von Neumann Architecture Principles:
+1. Stored-Program Concept: Both program instructions and data are stored in the same physical read-write memory space.
+2. Sequential Instruction Processing: Execution proceeds sequentially from one instruction to the next unless explicit branch/jump occurs.
+3. Von Neumann Bottleneck: Throughput is limited because CPU and memory share a single bus, preventing simultaneous instruction fetching and data reading.
+- Harvard Architecture Alternative: Physically separate storage and signal pathways for instructions and data.
+
+## 2. Central Processing Unit (CPU) Structure & Operation
+Major CPU Components:
+- Arithmetic Logic Unit (ALU): Performs arithmetic (addition, subtraction) and logical operations (AND, OR, NOT).
+- Control Unit (CU): Directs operation of processor; fetches, decodes, and orchestrates execution of instructions.
+- Registers: Ultra-fast temporary storage locations inside the CPU:
+  - Program Counter (PC): Holds memory address of next instruction to be fetched.
+  - Instruction Register (IR): Holds the instruction currently being decoded.
+  - Memory Address Register (MAR): Holds memory address to be read from or written to.
+  - Memory Data Register (MDR) / Buffer (MBR): Holds data read from or waiting to be written to memory.
+  - Accumulator (AC): Holds intermediate arithmetic and logical results.
+  - Stack Pointer (SP): Points to top of the system call stack.
+
+Instruction Execution Cycle:
+1. Fetch: Instruction retrieved from RAM address in PC into IR; PC incremented.
+2. Decode: Control Unit decodes opcode and operand addressing modes.
+3. Execute: ALU executes arithmetic/logic operation or memory access.
+4. Writeback / Store: Result saved to register or written back to RAM.
+5. Interrupt Check: Checks for pending hardware interrupts.
+
+## 3. Memory Hierarchy and Cache Memory
+Hierarchy (Fastest & Smallest -> Slowest & Largest):
+1. CPU Registers (~1 CPU cycle, ~1 KB)
+2. Level 1 (L1) Cache (~1-4 cycles, ~32-64 KB per core)
+3. Level 2 (L2) Cache (~10 cycles, ~512 KB - 1 MB per core)
+4. Level 3 (L3) Cache (~40 cycles, shared multi-MB)
+5. Main Physical Memory (DRAM, ~100-200 cycles, gigabytes)
+6. Secondary Storage (NVMe SSD, HDD, thousands to millions of cycles, terabytes)
+
+Principles of Locality:
+- Temporal Locality: If a memory location is referenced, it will likely be referenced again soon (e.g., loops).
+- Spatial Locality: If a memory location is referenced, nearby locations will likely be referenced soon (e.g., contiguous arrays).
+
+Cache Mapping Techniques:
+- Direct-Mapped: Each main memory block maps to exactly one cache line. Fast lookup, but highest conflict misses.
+- Fully Associative: Any block can reside in any cache line. Eliminates conflict misses, but requires expensive parallel tag search hardware.
+- Set-Associative (e.g., 4-way, 8-way): Compromise dividing cache into sets of lines.
+
+## 4. Pipelining and Hazards
+Pipelining is an implementation technique where multiple instructions are overlapped in execution, analogous to an assembly line.
+Classic RISC 5-Stage Pipeline:
+`IF (Instruction Fetch) -> ID (Decode) -> EX (Execute) -> MEM (Memory Access) -> WB (Write Back)`
+
+Pipeline Hazards:
+1. Structural Hazards: Hardware resource conflicts (e.g., single memory port accessed for both fetch and data read).
+2. Data Hazards: Instruction depends on the result of a prior instruction still in the pipeline:
+   - RAW (Read-After-Write): True dependency (mitigated with Data Forwarding/Bypassing).
+   - WAR (Write-After-Read): Anti-dependency.
+   - WAW (Write-After-Write): Output dependency.
+3. Control Hazards: Caused by branch/jump instructions altering program flow (mitigated with Branch Prediction and Branch Delay Slots).

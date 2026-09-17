@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+/* Typography styles inside markdown */
+.prose-custom h1, .prose-custom h2, .prose-custom h3, .prose-custom h4 {
+  color: #f8fafc;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-custom h1 { font-size: 1.4rem; }
+.prose-custom h2 { font-size: 1.25rem; }
+.prose-custom h3 { font-size: 1.1rem; }
+.prose-custom h4 { font-size: 1rem; }
+
+.prose-custom p {
+  margin-bottom: 0.75rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+
+.prose-custom ul, .prose-custom ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #cbd5e1;
+}
+
+.prose-custom li {
+  margin-bottom: 0.35rem;
+}
+
+.prose-custom pre {
+  background-color: #090d16;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.85rem;
+  overflow-x: auto;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+}
+
+.prose-custom code {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: rgba(30, 41, 59, 0.8);
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  color: #93c5fd;
+}
+
+.prose-custom pre code {
+  background-color: transparent;
+  padding: 0;
+  color: #e2e8f0;
+}
+
+.prose-custom blockquote {
+  border-left: 3px solid #3b82f6;
+  padding-left: 0.85rem;
+  margin-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-custom th, .prose-custom td {
+  border: 1px solid #334155;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.prose-custom th {
+  background-color: #1e293b;
+  color: #f8fafc;
+}

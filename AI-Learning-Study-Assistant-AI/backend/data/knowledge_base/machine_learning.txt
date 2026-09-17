@@ -1,0 +1,40 @@
+# MACHINE LEARNING (ML) STUDY GUIDE
+
+## 1. Introduction to Machine Learning
+Machine Learning (ML) is a subset of Artificial Intelligence that enables computer systems to learn patterns from historical training data and make predictions or decisions without being explicitly programmed with rigid rules.
+
+Primary Paradigms:
+1. Supervised Learning: Model learns mapping from input features X to labeled targets y.
+   - Classification: Discrete categories (e.g., Spam vs Not Spam, Tumor Malignancy).
+   - Regression: Continuous numerical values (e.g., House prices, Temperature prediction).
+2. Unsupervised Learning: Model discovers hidden structures, groupings, or representations in unlabeled data.
+   - Clustering: K-Means, Hierarchical clustering, DBSCAN.
+   - Dimensionality Reduction: Principal Component Analysis (PCA), t-SNE.
+3. Reinforcement Learning: Agent interacts with an environment, learning an optimal policy to maximize cumulative numerical rewards via trial and error.
+
+## 2. Supervised Learning Algorithms
+- Linear Regression: Models relationship via linear equation y = w^T * x + b. Optimized using Ordinary Least Squares or Gradient Descent minimizing Mean Squared Error (MSE).
+- Logistic Regression: Binary classification modeling probabilities using the Sigmoid (logistic) function: `sigma(z) = 1 / (1 + e^(-z))`. Cost function: Binary Cross-Entropy (Log Loss).
+- Decision Trees: Splits dataset based on feature thresholds maximizing Information Gain (Entropy reduction) or minimizing Gini Impurity.
+- Random Forest: Ensemble learning method using Bagging (Bootstrap Aggregating) of multiple decision trees to reduce variance and combat overfitting.
+- Support Vector Machines (SVM): Finds the optimal hyperplane that maximizes the margin separating distinct classes; utilizes Kernel Trick (RBF, Polynomial) for non-linear decision boundaries.
+- K-Nearest Neighbors (KNN): Instance-based lazy learner classifying a query point based on majority vote of its k closest neighbors in Euclidean feature space.
+
+## 3. Model Evaluation and Bias-Variance Tradeoff
+### Bias-Variance Tradeoff
+- Underfitting (High Bias): Model is overly simplistic and fails to capture the underlying pattern of both training and testing datasets. Fix: Increase model complexity, add features, reduce regularization.
+- Overfitting (High Variance): Model memorizes training noise and generalizes poorly to unseen test data. Fix: Gather more training data, apply L1 (Lasso) / L2 (Ridge) regularization, prune trees, apply dropout.
+
+### Evaluation Metrics
+- Confusion Matrix: True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN).
+- Accuracy: (TP + TN) / (TP + TN + FP + FN). Can be misleading in imbalanced datasets.
+- Precision: TP / (TP + FP). Proportion of positive identifications that were actually correct.
+- Recall (Sensitivity): TP / (TP + FN). Proportion of actual positives identified correctly.
+- F1-Score: Harmonic mean of Precision and Recall = 2 * (Precision * Recall) / (Precision + Recall).
+- ROC-AUC: Receiver Operating Characteristic curve plotting True Positive Rate vs False Positive Rate. AUC ranges from 0.5 (random guess) to 1.0 (perfect classification).
+
+## 4. Retrieval-Augmented Generation (RAG) and Embeddings
+RAG combines retrieval systems with generative large language models to provide factual, grounded answers.
+- Text Embeddings: Dense vector representations of text where semantically similar phrases are located close together in high-dimensional vector space (cosine similarity).
+- Vector Databases: Specialized storage engines (like ChromaDB, FAISS, Pinecone) optimized for approximate nearest neighbor (ANN) vector searches.
+- Retrieval Pipeline: Query embedding -> Vector similarity search -> Retrieve top-K relevant chunks -> Inject chunks as context prompt into LLM -> Grounded answer generation.
