@@ -1,0 +1,42 @@
+# WEB DEVELOPMENT STUDY GUIDE
+
+## 1. Web Fundamentals & Architecture
+Web applications operate primarily on the Client-Server architecture over HTTP/HTTPS protocols.
+- Frontend (Client): The user interface executing in the browser (HTML, CSS, JavaScript/TypeScript).
+- Backend (Server): Handles business logic, database queries, authentication, and API endpoints (e.g., Python/FastAPI, Node.js/Express, Java/Spring).
+- Database: Stores persistent application state (Relational SQL or NoSQL).
+
+## 2. Core Frontend Technologies
+### HTML5
+- Semantic Elements: `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<aside>`, `<footer>`. Improves accessibility (a11y) and SEO.
+- Forms and Inputs: `<input type="email" required>`, `<button type="submit">`.
+
+### CSS3 & Modern Styling
+- Box Model: Content -> Padding -> Border -> Margin. `box-sizing: border-box` makes width calculations predictable.
+- Flexbox: 1-dimensional layout model (`display: flex`, `justify-content`, `align-items`, `flex-direction`).
+- CSS Grid: 2-dimensional layout model (`grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))`).
+- Responsive Design: Media queries (`@media (max-width: 768px)`), mobile-first CSS architecture, viewport units.
+
+### Modern JavaScript (ES6+)
+- Variables: `const` (block-scoped immutable reference) and `let` (block-scoped mutable variable). Avoid `var`.
+- Arrow Functions: `const add = (a, b) => a + b;` lexical `this` binding.
+- Destructuring & Spread: `const { id, name } = user;` and `const updated = { ...user, active: true };`.
+- Asynchronous JavaScript:
+  - Promises: Pending -> Fulfilled or Rejected.
+  - Async / Await: Syntactic sugar over Promises providing clean synchronous-looking asynchronous code.
+  - Fetch API and Axios: Making HTTP network calls to REST endpoints.
+
+## 3. Frontend Component Frameworks (React & Vite)
+- Component-Based Architecture: Decomposing UI into independent, reusable, testable components.
+- Virtual DOM: Lightweight in-memory representation of real DOM; reconciles changes via diffing algorithm for high rendering performance.
+- React Hooks:
+  - `useState`: Manages local component reactive state.
+  - `useEffect`: Executes side effects (data fetching, DOM listeners, timers) tied to dependency arrays.
+  - `useMemo` & `useCallback`: Optimizes expensive calculations and prevents unnecessary child re-renders.
+- Vite: Next-generation frontend build tool powered by native ES modules (ESM) in development and Rollup in production, offering instant Hot Module Replacement (HMR).
+
+## 4. RESTful API Design Principles
+- Statelessness: Each request from client contains all necessary context and authentication credentials.
+- Standard HTTP Verbs: GET (Read), POST (Create), PUT (Full Update), PATCH (Partial Update), DELETE (Remove).
+- JSON Data Exchange: Standardized payload format with explicit HTTP Status codes (200, 201, 400, 401, 404, 500).
+- CORS (Cross-Origin Resource Sharing): Security mechanism using HTTP headers to allow or restrict resources requested from a different domain or port.

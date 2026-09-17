@@ -1,0 +1,65 @@
+# DATABASE MANAGEMENT SYSTEMS (DBMS) STUDY GUIDE
+
+## 1. Introduction to DBMS
+A Database Management System (DBMS) is software that manages, stores, retrieves, and organizes data in a structured and efficient format. It provides an interface between the end user/application and the underlying physical database files.
+
+Key Advantages:
+- Reduced Data Redundancy: Eliminates unnecessary duplication of identical data across tables.
+- Data Integrity & Consistency: Constraints ensure data accurately reflects real-world rules (e.g., NOT NULL, UNIQUE, CHECK).
+- Concurrency Control: Multiple transactions can read and modify the database simultaneously without corruption.
+- Security and Access Control: Granular user permissions ensure confidential data is restricted.
+- Crash Recovery & Backup: Transaction logs (WAL) ensure durability even after sudden power outages.
+
+## 2. Relational Data Model & Keys
+In relational databases (RDBMS), data is stored in relations (tables) consisting of tuples (rows) and attributes (columns).
+- Super Key: Any set of attributes that uniquely identifies a row in a table.
+- Candidate Key: A minimal super key (no redundant attributes).
+- Primary Key: The specific candidate key chosen by the database designer to uniquely identify records. It cannot accept NULL values.
+- Foreign Key: An attribute in one table that references the Primary Key of another table, establishing a referential relationship and enforcing referential integrity.
+- Alternate Key: Candidate keys not selected as the primary key.
+
+## 3. Database Normalization (Step-by-Step)
+Normalization is the process of organizing data in a database to reduce data redundancy, eliminate data anomalies (Insertion, Deletion, and Update anomalies), and improve data integrity.
+
+### First Normal Form (1NF)
+- A relation is in 1NF if and only if every attribute value is atomic (indivisible) and there are no repeating groups or arrays.
+- Example: If a student record has `Courses = 'DBMS, OS, CN'`, this violates 1NF. To fix, separate into distinct rows for each course.
+
+### Second Normal Form (2NF)
+- A relation is in 2NF if it is in 1NF AND all non-key attributes are fully functionally dependent on the entire primary key.
+- Eliminates Partial Dependency: Partial dependency occurs when a non-key attribute depends on only a part of a composite primary key.
+
+### Third Normal Form (3NF)
+- A relation is in 3NF if it is in 2NF AND there is no transitive dependency.
+- Transitive Dependency: Occurs when attribute A determines attribute B (A -> B), and B determines attribute C (B -> C), which implies A transitively determines C.
+- Rule for 3NF: For every functional dependency X -> Y, either X is a super key, or Y is a prime attribute (part of a candidate key).
+
+### Boyce-Codd Normal Form (BCNF)
+- A stricter version of 3NF.
+- A relation is in BCNF if for every non-trivial functional dependency X -> Y, X must strictly be a Super Key.
+
+## 4. SQL Fundamentals & Joins
+Structured Query Language (SQL) is categorized into:
+- DDL (Data Definition Language): CREATE, ALTER, DROP, TRUNCATE.
+- DML (Data Manipulation Language): INSERT, UPDATE, DELETE.
+- DQL (Data Query Language): SELECT.
+- DCL (Data Control Language): GRANT, REVOKE.
+- TCL (Transaction Control Language): COMMIT, ROLLBACK, SAVEPOINT.
+
+Joins:
+- INNER JOIN: Returns records that have matching values in both tables.
+- LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table.
+- RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table.
+- FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table.
+
+## 5. ACID Properties and Transactions
+A transaction is a logical unit of work that contains one or more database operations.
+- Atomicity: "All or nothing". Either the entire transaction succeeds, or it is rolled back completely.
+- Consistency: The database must transition from one valid state to another valid state, upholding all constraints.
+- Isolation: Concurrent transactions execute independently as if they were running serially.
+- Durability: Once a transaction commits, its modifications are permanently recorded in non-volatile storage.
+
+## 6. Indexing and Performance Tuning
+An index is an auxiliary data structure (commonly B-Tree or B+ Tree) that speeds up data retrieval operations at the cost of slower writes (INSERT/UPDATE) and additional storage.
+- Clustered Index: Determines the physical order of data in the table. There can only be one clustered index per table.
+- Non-Clustered Index: Creates a separate index structure with pointers back to the actual table rows. Multiple non-clustered indexes are allowed.

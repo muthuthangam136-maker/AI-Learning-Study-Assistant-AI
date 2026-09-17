@@ -1,0 +1,46 @@
+# PYTHON PROGRAMMING STUDY GUIDE
+
+## 1. Python Language Fundamentals
+Python is an interpreted, high-level, dynamically typed, garbage-collected programming language known for readable syntax and rich standard libraries.
+- Dynamic Typing: Variable types are determined at runtime.
+- Memory Management: Automatic reference counting supplemented by cyclic garbage collector.
+- Interpreted Nature: Source code (.py) is compiled into CPython bytecode (.pyc) which is executed by the CPython virtual machine.
+
+## 2. Built-in Data Structures
+- Lists: Mutable, ordered sequence. Example: `nums = [1, 2, 3]`. Supports slicing `nums[1:3]`, appending, and list comprehensions `[x**2 for x in nums if x > 0]`.
+- Tuples: Immutable, ordered sequence. Example: `point = (10, 20)`. Faster than lists and can be used as dictionary keys.
+- Dictionaries: Key-value hash map. Example: `student = {"id": 101, "name": "Alice"}`. Keys must be immutable hashable objects.
+- Sets: Mutable, unordered collection of unique items. Supports set operations: union `|`, intersection `&`, difference `-`.
+
+## 3. Functions, Recursion and Scope
+- Definition: Defined using `def` keyword.
+- Default & Keyword Arguments: `def greet(name, greeting="Hello"): return f"{greeting}, {name}"`.
+- `*args` and `**kwargs`: Variable positional arguments tuple and keyword arguments dictionary.
+- Recursion: A function that solves a problem by calling itself with smaller subproblems until a base case is reached.
+  - Base Case: Termination condition preventing infinite recursion.
+  - Recursive Step: Problem reduction towards the base case.
+  - Recursion Limit: Python enforces `sys.getrecursionlimit()` (typically 1000) to protect the C call stack from overflow.
+  - Classic Example - Factorial:
+    ```python
+    def factorial(n: int) -> int:
+        if n <= 1:
+            return 1
+        return n * factorial(n - 1)
+    ```
+
+## 4. Advanced Python Concepts
+- Decorators: Functions that take another function as an argument and extend its behavior without modifying its source.
+  ```python
+  def log_call(func):
+      def wrapper(*args, **kwargs):
+          print(f"Calling {func.__name__}")
+          return func(*args, **kwargs)
+      return wrapper
+  ```
+- Generators: Functions utilizing `yield` instead of `return` to produce lazy iterable streams with O(1) memory overhead.
+- Context Managers: Manage resource acquisition and release safely using the `with` statement (`__enter__` and `__exit__`).
+
+## 5. Object-Oriented Programming (OOP) in Python
+- Classes & Instances: `class Student:` with constructor `__init__(self, name)`.
+- Dunder/Magic Methods: `__str__`, `__repr__`, `__len__`, `__eq__`.
+- Inheritance: Single and multiple inheritance supported with Method Resolution Order (MRO) computed via the C3 Linearization algorithm.

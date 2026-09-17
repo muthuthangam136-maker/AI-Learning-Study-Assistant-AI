@@ -1,0 +1,47 @@
+# COMPUTER NETWORKS STUDY GUIDE
+
+## 1. Network Architectures and Models
+Computer networks enable communication and resource sharing among geographically distributed computing devices.
+
+### OSI 7-Layer Reference Model
+1. Physical Layer: Transmission of raw binary bit streams over physical transmission media (cables, optical fibers, radio waves).
+2. Data Link Layer: Framing, physical hardware addressing (MAC addresses), error detection (CRC), flow control. Protocols: Ethernet (IEEE 802.3), Wi-Fi (IEEE 802.11), ARP.
+3. Network Layer: Logical host-to-host addressing (IPv4, IPv6) and routing packets across subnets. Protocols: IP, ICMP, OSPF, BGP.
+4. Transport Layer: End-to-end process-to-process communication, multiplexing, port numbers, reliability, flow control, congestion control. Protocols: TCP, UDP.
+5. Session Layer: Establishes, manages, and terminates dialog sessions between applications.
+6. Presentation Layer: Translation, data formatting, encryption/decryption (SSL/TLS), and compression.
+7. Application Layer: End-user services and application interfaces. Protocols: HTTP, HTTPS, DNS, SMTP, FTP, SSH.
+
+### TCP/IP 4-Layer Model
+Network Interface / Access -> Internet -> Transport -> Application.
+
+## 2. Transport Layer: TCP vs. UDP
+### Transmission Control Protocol (TCP)
+- Connection-Oriented: Requires a 3-Way Handshake (SYN -> SYN-ACK -> ACK) before transferring payload data.
+- Reliability: Guarantees delivery via sequence numbers, acknowledgment packets (ACK), and retransmissions upon timeout.
+- Ordered Data Transfer: Packets arriving out of sequence are buffered and delivered in order.
+- Flow Control: Sliding window mechanism prevents fast sender from overwhelming slow receiver buffer.
+- Congestion Control: AIMD (Additive Increase / Multiplicative Decrease), Slow Start, Congestion Avoidance, Fast Retransmit / Fast Recovery.
+- Use Cases: Web pages (HTTP/HTTPS), File transfers (FTP/SFTP), Emails (SMTP/IMAP), Remote terminal (SSH).
+
+### User Datagram Protocol (UDP)
+- Connectionless: No handshake required; sends datagrams directly without prior setup.
+- Unreliable: Best-effort delivery; does not guarantee packet delivery, ordering, or deduplication.
+- Minimal Overhead: Small 8-byte header compared to TCP's 20-60 byte header.
+- Low Latency: No acknowledgment delays or head-of-line blocking.
+- Use Cases: Video streaming (VoIP, YouTube live streams), Online multiplayer gaming, DNS queries, DHCP, SNMP.
+
+## 3. Network Layer: IP Addressing, Subnetting & Routing
+- IPv4: 32-bit address split into 4 octets (e.g., 192.168.1.1). Classes A, B, C, D (Multicast), E (Experimental).
+- CIDR (Classless Inter-Domain Routing): Uses prefix masks like `/24` (255.255.255.0).
+- IPv6: 128-bit address represented in hexadecimal to overcome IPv4 address exhaustion.
+- NAT (Network Address Translation): Translates private RFC 1918 IPs inside a LAN to public IPs for Internet routing.
+- Routing Algorithms:
+  - Distance Vector: Bellman-Ford algorithm; routes based on hop count (e.g., RIP).
+  - Link State: Dijkstra's algorithm; maintains complete topological map of network (e.g., OSPF).
+
+## 4. Key Application Layer Protocols
+- Domain Name System (DNS): Hierarchical distributed database mapping human-readable domain names (e.g., google.com) to IP addresses. Operates over UDP port 53.
+- HTTP / HTTPS: Hypertext Transfer Protocol. HTTPS encrypts communication over TLS on TCP port 443.
+- HTTP Methods: GET (retrieve data), POST (submit data), PUT (replace data), DELETE (remove resource), PATCH (partial update).
+- HTTP Status Codes: 200 OK, 301 Moved Permanently, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 500 Internal Server Error, 502 Bad Gateway.

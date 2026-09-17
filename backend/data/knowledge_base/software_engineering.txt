@@ -1,0 +1,38 @@
+# SOFTWARE ENGINEERING STUDY GUIDE
+
+## 1. Software Development Life Cycle (SDLC)
+SDLC is a structured sequence of stages followed to produce high-quality, cost-effective software within minimal timeframes.
+Stages:
+1. Requirements Analysis: Gathering user and business needs, producing Software Requirements Specification (SRS).
+2. System Design: Architectural design, database schema, component interfaces, API contracts.
+3. Implementation (Coding): Translating design into executable source code adhering to coding standards.
+4. Testing: Verifying system fulfills functional and non-functional requirements.
+5. Deployment: Releasing the software to production staging and customer environments (CI/CD).
+6. Maintenance: Bug fixes, performance tuning, and accommodating evolving requirements.
+
+## 2. SDLC Models
+- Waterfall Model: Linear sequential model. Requirements must be fixed upfront. Difficult to accommodate mid-project modifications.
+- Spiral Model: Risk-driven iterative model. Best suited for high-risk, large-scale enterprise projects.
+- Agile Methodology: Iterative and incremental delivery with continuous customer collaboration, frequent releases (Sprints, typically 2 weeks), and rapid adaptation to change.
+  - Scrum Framework: Roles (Product Owner, Scrum Master, Developers); Ceremonies (Sprint Planning, Daily Standup, Sprint Review, Retrospective); Artifacts (Product Backlog, Sprint Backlog, Burndown Chart).
+
+## 3. Software Architecture and Design Patterns
+SOLID Principles:
+- Single Responsibility Principle (SRP): A class should have one, and only one, reason to change.
+- Open/Closed Principle (OCP): Software entities should be open for extension, but closed for modification.
+- Liskov Substitution Principle (LSP): Subtypes must be substitutable for their base types without altering system correctness.
+- Interface Segregation Principle (ISP): Clients should not be forced to depend upon interfaces they do not use.
+- Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules; both should depend on abstractions.
+
+GoF Design Patterns:
+- Creational: Singleton (single instance), Factory Method (instantiates derived classes), Builder (constructs complex objects step-by-step).
+- Structural: Adapter (interfaces compatibility), Decorator (dynamic feature addition), Facade (simplified interface to complex subsystem).
+- Behavioral: Observer (publish-subscribe event notifications), Strategy (swappable algorithms at runtime).
+
+## 4. Software Testing Strategies
+- Unit Testing: Isolates and tests individual functions or classes.
+- Integration Testing: Verifies interfaces and interactions between interconnected modules.
+- System Testing: End-to-end validation of the integrated application against requirements.
+- Acceptance Testing: Alpha/Beta testing by end users to approve deployment.
+- Black-Box Testing: Testing functionality without knowledge of internal code structure (e.g., Boundary Value Analysis, Equivalence Partitioning).
+- White-Box Testing: Testing internal logic, branch coverage, statement coverage, and execution paths.

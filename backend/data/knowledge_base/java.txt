@@ -1,0 +1,51 @@
+# JAVA PROGRAMMING STUDY GUIDE
+
+## 1. Java Core Fundamentals & Architecture
+Java is an object-oriented, class-based, write-once-run-anywhere (WORA) programming language designed for platform independence.
+- JVM (Java Virtual Machine): Executes Java bytecode (.class files) and performs memory management and garbage collection.
+- JRE (Java Runtime Environment): JVM + core runtime libraries needed to run compiled Java applications.
+- JDK (Java Development Kit): JRE + development tools (compiler `javac`, debugger, archiver `jar`).
+- Bytecode & JIT: Java source is compiled by `javac` into bytecode, which is executed by the JVM. Frequently executed loops are compiled into native machine code by the Just-In-Time (JIT) compiler.
+
+## 2. Object-Oriented Programming (OOP) in Java
+1. Encapsulation: Binding data (fields) and methods operating on that data into a single class; restricting direct field access using `private` modifiers with public getters/setters.
+2. Inheritance: Subclass inherits attributes and methods of superclass using `extends`. Java supports single class inheritance and multiple interface inheritance (`implements`).
+3. Polymorphism:
+   - Compile-time (Static): Method Overloading (same method name with different parameter signatures).
+   - Runtime (Dynamic): Method Overriding (subclass provides specific implementation of inherited superclass method using `@Override`).
+4. Abstraction: Hiding internal implementation details and showing only essential features using `abstract` classes and `interface`.
+
+## 3. Java Arrays and Memory Representation
+An array in Java is an object that stores elements of the same data type at contiguous memory locations.
+- Declaration & Initialization:
+  ```java
+  int[] numbers = new int[5]; // Allocates memory on Heap, initialized to 0
+  int[] primes = {2, 3, 5, 7, 11};
+  ```
+- Characteristics:
+  - 0-indexed: First element at index `0`, last at `length - 1`.
+  - Length is immutable: Once created, array size cannot be altered dynamically.
+  - Access time: `O(1)` by index. Search time: `O(N)` for unsorted, `O(log N)` with `Arrays.binarySearch()` for sorted arrays.
+  - Throws `ArrayIndexOutOfBoundsException` on invalid index access.
+- Multi-dimensional Arrays:
+  ```java
+  int[][] matrix = new int[3][3];
+  ```
+
+## 4. Java Collections Framework
+- List: Ordered collection allowing duplicate elements.
+  - `ArrayList`: Dynamic array with fast O(1) random access, slower O(N) middle insertions.
+  - `LinkedList`: Doubly linked list with fast O(1) insertions/deletions at endpoints.
+- Set: Unordered collection prohibiting duplicate elements.
+  - `HashSet`: Backed by hash table; O(1) average lookup.
+  - `TreeSet`: Sorted set backed by Red-Black tree; O(log N) operations.
+- Map: Key-value pairs with unique keys.
+  - `HashMap`: O(1) average insertion and retrieval; uses chaining/tree-buckets for collision resolution.
+  - `TreeMap`: Keys sorted in natural or comparator order.
+
+## 5. Exception Handling & Multithreading
+- Hierarchy: `Throwable` -> `Exception` and `Error`.
+  - Checked Exceptions: Verified at compile-time (e.g., `IOException`, `SQLException`).
+  - Unchecked Exceptions: Subclasses of `RuntimeException` (e.g., `NullPointerException`, `ArithmeticException`).
+- Syntax: `try`, `catch`, `finally`, `throw`, and `throws`.
+- Multithreading: Extending `Thread` or implementing `Runnable` / `Callable`. Synchronization using `synchronized` keyword or `ReentrantLock`.
