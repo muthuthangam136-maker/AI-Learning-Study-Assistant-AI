@@ -368,3 +368,5 @@ Take screenshots of these screens for your final project documentation:
 
 ## 🏆 Project Certification
 Built with ❤️ for the **IBM / TNSDC Agentic AI Internship Program**. Demonstrates true autonomous multi-step reasoning, semantic RAG retrieval, tool execution, and stateful memory.
+
+GitHub connection test
